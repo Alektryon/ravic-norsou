@@ -814,7 +814,7 @@ function Build_Ciphers() {
 }
 
 function Set_Categories() {
-	catArr = ["English", "English (Special)", "Reverse", "Jewish", "Kabbalah", "Alphanumeric", "Mathematical", "Other", "Foreign", "Russian", "Custom"]
+	catArr = ["English", "Reverse", "English (Special)", "Jewish", "Kabbalah", "Alphanumeric", "Mathematical", "Other", "Foreign", "Russian", "Custom"]
 
 	cipherArray["English Ordinal"] = "English"
 	cipherArray["Full Reduction"] = "English"
@@ -826,6 +826,16 @@ function Set_Categories() {
 	cipherArray["Franc Baconis"] = "English"
 	cipherArray["Satanic"] = "English"
 
+	cipherArray["Reverse Ordinal"] = "Reverse"
+	cipherArray["Reverse Full Reduction"] = "Reverse"
+	cipherArray["Reverse Single Reduction"] = "Reverse"
+	cipherArray["Reverse Full Reduction EP"] = "Reverse"
+	cipherArray["Reverse Single Reduction EP"] = "Reverse"
+	cipherArray["Reverse Extended"] = "Reverse"
+	cipherArray["Reverse Francis Bacon"] = "Reverse"
+	cipherArray["Reverse Franc Baconis"] = "Reverse"
+	cipherArray["Reverse Satanic"] = "Reverse"
+	
 	cipherArray["Bacon Simple"] = "English (Special)"
 	cipherArray["Bacon Reverse"] = "English (Special)"
 	cipherArray["Bacon Short"] = "English (Special)"
@@ -839,16 +849,6 @@ function Set_Categories() {
 	cipherArray["Beatus Ordinal"] = "English (Special)"
 	cipherArray["Beatus Reduction"] = "English (Special)"
 
-	cipherArray["Reverse Ordinal"] = "Reverse"
-	cipherArray["Reverse Full Reduction"] = "Reverse"
-	cipherArray["Reverse Single Reduction"] = "Reverse"
-	cipherArray["Reverse Full Reduction EP"] = "Reverse"
-	cipherArray["Reverse Single Reduction EP"] = "Reverse"
-	cipherArray["Reverse Extended"] = "Reverse"
-	cipherArray["Reverse Francis Bacon"] = "Reverse"
-	cipherArray["Reverse Franc Baconis"] = "Reverse"
-	cipherArray["Reverse Satanic"] = "Reverse"
-	
 	cipherArray["Jewish"] = "Jewish"
 	cipherArray["Jewish Ordinal"] = "Jewish"	
 	cipherArray["Jewish Reduction"] = "Jewish"
