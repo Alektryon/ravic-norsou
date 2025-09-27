@@ -737,7 +737,7 @@ function Build_Ciphers() {
 			case "Bacon Simple": allCiphers[allCiphers.length] = new cipher(key, "English", 80, 235, 21, "BaconSimple"); break;
 			case "Bacon Reverse": allCiphers[allCiphers.length] = new cipher(key, "English", 0, 186, 0, "Reverse", "BaconReverse"); break;
 			case "Bacon Short": allCiphers[allCiphers.length] = new cipher(key, "English", 100, 216, 209, "BaconShort"); break;
-			case "Bacon Short Reverse": allCiphers[allCiphers.length] = new cipher(key, "English", 88, 125, 254, "Reverse", "BaconShortRev"); break;
+			case "Bacon Reverse Reduction": allCiphers[allCiphers.length] = new cipher(key, "English", 88, 125, 254, "Reverse", "BaconShortRev"); break;
 			case "Bacon Kaye": allCiphers[allCiphers.length] = new cipher(key, "English", 220, 93, 73, "BaconKaye"); break;
 			case "Kaye 36": allCiphers[allCiphers.length] = new cipher(key, "Kaye36", 220, 93, 73); break;
 			case "Modern Kaye": allCiphers[allCiphers.length] = new cipher(key, "English", 230, 153, 163, "ModernKaye"); break;
@@ -806,7 +806,7 @@ function Build_Ciphers() {
 			case "RU Extended": allCiphers[allCiphers.length] = new cipher(key, "Russian", 218, 226, 0, "Extend"); break;
 			case "RU Reverse Extended": allCiphers[allCiphers.length] = new cipher(key, "Russian", 253, 255, 119, "Reverse", "Extend"); break;
 						
-			case "English Custom": allCiphers[allCiphers.length] = new cipher(key, "English", 236, 236, 177, "EnglishCustom"); break;
+			case "English Custom": allCiphers[allCiphers.length] = new cipher(key, "English", 224, 224, 32, "EnglishCustom"); break;
 		}
 	}
 
@@ -814,7 +814,7 @@ function Build_Ciphers() {
 }
 
 function Set_Categories() {
-	catArr = ["English", "Reverse", "English (Special)", "Jewish", "Kabbalah", "Alphanumeric", "Mathematical", "Other", "Foreign", "Russian", "Custom"]
+	catArr = ["English", "English (Special)", "Reverse", "Jewish", "Kabbalah", "Mathematical", "Other", "Foreign", "Russian", "Custom"]
 
 	cipherArray["English Ordinal"] = "English"
 	cipherArray["Full Reduction"] = "English"
@@ -826,6 +826,18 @@ function Set_Categories() {
 	cipherArray["Franc Baconis"] = "English"
 	cipherArray["Satanic"] = "English"
 
+	cipherArray["Bacon Simple"] = "English (Special)"
+	cipherArray["Bacon Reverse"] = "English (Special)"
+	cipherArray["Bacon Short"] = "English (Special)"
+	cipherArray["Bacon Kaye"] = "English (Special)"
+//	cipherArray["Kaye 36"] = "English (Special)"
+	cipherArray["Modern Kaye"] = "English (Special)"
+	cipherArray["Illuminati Novice"] = "English (Special)"
+	cipherArray["Illuminati Reverse"] = "English (Special)"
+	cipherArray["Beatus of Liebana"] = "English (Special)"
+	cipherArray["Beatus Ordinal"] = "English (Special)"
+	cipherArray["Beatus Reduction"] = "English (Special)"
+
 	cipherArray["Reverse Ordinal"] = "Reverse"
 	cipherArray["Reverse Full Reduction"] = "Reverse"
 	cipherArray["Reverse Single Reduction"] = "Reverse"
@@ -836,19 +848,6 @@ function Set_Categories() {
 	cipherArray["Reverse Franc Baconis"] = "Reverse"
 	cipherArray["Reverse Satanic"] = "Reverse"
 	
-	cipherArray["Bacon Simple"] = "English (Special)"
-	cipherArray["Bacon Reverse"] = "English (Special)"
-	cipherArray["Bacon Short"] = "English (Special)"
-	cipherArray["Bacon Short Reverse"] = "English (Special)"
-	cipherArray["Bacon Kaye"] = "English (Special)"
-	cipherArray["Kaye 36"] = "English (Special)"
-	cipherArray["Modern Kaye"] = "English (Special)"
-	cipherArray["Illuminati Novice"] = "English (Special)"
-	cipherArray["Illuminati Reverse"] = "English (Special)"
-	cipherArray["Beatus of Liebana"] = "English (Special)"
-	cipherArray["Beatus Ordinal"] = "English (Special)"
-	cipherArray["Beatus Reduction"] = "English (Special)"
-
 	cipherArray["Jewish"] = "Jewish"
 	cipherArray["Jewish Ordinal"] = "Jewish"	
 	cipherArray["Jewish Reduction"] = "Jewish"
@@ -857,8 +856,7 @@ function Set_Categories() {
 	cipherArray["KFW Kabbalah"] = "Kabbalah"
 	cipherArray["LCH Kabbalah"] = "Kabbalah"
 
-   	cipherArray["Alphanumeric Qabbala"] = "Alphanumeric"
-	cipherArray["Elizabethan Alphanumeric"] = "Alphanumeric"
+//	cipherArray["Elizabethan Alphanumeric"] = "Alphanumeric"
 
 	cipherArray["English Sumerian"] = "Mathematical"
 	cipherArray["Reverse English Sumerian"] = "Mathematical"
@@ -898,6 +896,8 @@ function Set_Categories() {
 	cipherArray["RU Extended"] = "Russian"
 	cipherArray["RU Reverse Extended"] = "Russian"
 
+	cipherArray["Bacon Reverse Reduction"] = "Custom"
+   	cipherArray["Alphanumeric Qabbala"] = "Custom"
 	cipherArray["English Custom"] = "Custom"
 	
 
