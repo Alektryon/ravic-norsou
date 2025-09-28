@@ -826,18 +826,6 @@ function Set_Categories() {
 	cipherArray["Franc Baconis"] = "English"
 	cipherArray["Satanic"] = "English"
 
-	cipherArray["Bacon Simple"] = "English (Special)"
-	cipherArray["Bacon Reverse"] = "English (Special)"
-	cipherArray["Bacon Short"] = "English (Special)"
-	cipherArray["Bacon Kaye"] = "English (Special)"
-//	cipherArray["Kaye 36"] = "English (Special)"
-	cipherArray["Modern Kaye"] = "English (Special)"
-	cipherArray["Illuminati Novice"] = "English (Special)"
-	cipherArray["Illuminati Reverse"] = "English (Special)"
-	cipherArray["Beatus of Liebana"] = "English (Special)"
-	cipherArray["Beatus Ordinal"] = "English (Special)"
-	cipherArray["Beatus Reduction"] = "English (Special)"
-
 	cipherArray["Reverse Ordinal"] = "Reverse"
 	cipherArray["Reverse Full Reduction"] = "Reverse"
 	cipherArray["Reverse Single Reduction"] = "Reverse"
@@ -895,6 +883,18 @@ function Set_Categories() {
 	
 	cipherArray["RU Extended"] = "Russian"
 	cipherArray["RU Reverse Extended"] = "Russian"
+
+	cipherArray["Bacon Simple"] = "English (Special)"
+	cipherArray["Bacon Reverse"] = "English (Special)"
+	cipherArray["Bacon Short"] = "English (Special)"
+	cipherArray["Bacon Kaye"] = "English (Special)"
+//	cipherArray["Kaye 36"] = "English (Special)"
+	cipherArray["Modern Kaye"] = "English (Special)"
+	cipherArray["Illuminati Novice"] = "English (Special)"
+	cipherArray["Illuminati Reverse"] = "English (Special)"
+	cipherArray["Beatus of Liebana"] = "English (Special)"
+	cipherArray["Beatus Ordinal"] = "English (Special)"
+	cipherArray["Beatus Reduction"] = "English (Special)"
 
 	cipherArray["Bacon Reverse Reduction"] = "Custom"
    	cipherArray["Alphanumeric Qabbala"] = "Custom"
