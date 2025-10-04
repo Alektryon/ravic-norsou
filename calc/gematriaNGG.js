@@ -1,6 +1,6 @@
 var catArr = []; gemArr = []
 var cipherArray = [];
-var openCiphers = ["English Ordinal", "Full Reduction", "Reverse Ordinal", "Reverse Full Reduction"]
+var openCiphers = ["Ordinal", "Reduction", "Reverse", "Reverse Reduction"]
 var ciphersOn = []; allCiphers = []; sHistory = []
 var opt_NumCalculation = "Reduced"
 var primeArr = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 
@@ -46,6 +46,14 @@ class cipher {
 				this.cArr2 = [48,49,50,51,52,53,54,55,56,57,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,38,8523,65,66,67,68,69,70,71,72,73,74]
 				this.vArr = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,35]
 				this.vArr2 = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,35]
+                }
+				break;
+			case "BaconKaye":
+				for (y = 0; y < 36; y++) {
+				this.cArr = [97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122]
+				this.cArr2 = [65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90]
+				this.vArr = [27,28,29,30,31,32,33,34,35,35,10,11,12,13,14,15,16,17,18,19,20,20,21,22,23,24]
+				this.vArr2 = [27,28,29,30,31,32,33,34,35,35,10,11,12,13,14,15,16,17,18,19,20,20,21,22,23,24]
                 }
 				break;
 			case "AQ":
@@ -164,7 +172,6 @@ class cipher {
 		if (impMods.indexOf("BaconReverse") > -1) {this.Make_BaconReverse()}
 		if (impMods.indexOf("BaconShort") > -1) {this.Make_BaconShort()}
 		if (impMods.indexOf("BaconShortRev") > -1) {this.Make_BaconShortRev()}
-		if (impMods.indexOf("BaconKaye") > -1) {this.Make_BaconKaye()}
 		if (impMods.indexOf("ModernKaye") > -1) {this.Make_ModernKaye()}
 		if (impMods.indexOf("IlluminatiNovice") > -1) {this.Make_IlluminatiNovice()}
 		if (impMods.indexOf("IlluminatiReverse") > -1) {this.Make_IlluminatiReverse()}
@@ -593,10 +600,6 @@ class cipher {
 		this.vArr = [1,2,3,4,5,5,6,7,8,9,1,2,3,4,5,6,7,7,8,9,1,2,3,4,5,6]
 		this.vArr2 = [1,2,3,4,5,5,6,7,8,9,1,2,3,4,5,6,7,7,8,9,1,2,3,4,5,6]
 	}
-	Make_BaconKaye() {
-		this.vArr = [27,28,29,30,31,32,33,34,35,35,10,11,12,13,14,15,16,17,18,19,20,20,21,22,23,24]
-		this.vArr2 = [27,28,29,30,31,32,33,34,35,35,10,11,12,13,14,15,16,17,18,19,20,20,21,22,23,24]
-	}
 	Make_ModernKaye() {
 		this.vArr = [27,28,29,30,31,32,33,34,35,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26]
 		this.vArr2 = [27,28,29,30,31,32,33,34,35,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26]
@@ -724,53 +727,52 @@ function Build_Ciphers() {
 
 	for (key in cipherArray) {
 		switch (key) {
-			case "Full Reduction": allCiphers[allCiphers.length] = new cipher(key, "English", 88, 125, 254, "FullReduction"); break;
+			case "Ordinal": allCiphers[allCiphers.length] = new cipher(key, "English", 0, 186, 0); break;
+			case "Reduction": allCiphers[allCiphers.length] = new cipher(key, "English", 88, 125, 254, "FullReduction"); break;
 			case "Single Reduction": allCiphers[allCiphers.length] = new cipher(key, "English", 140, 171, 227, "SingleReduction"); break;
-			case "Full Reduction KV": allCiphers[allCiphers.length] = new cipher(key, "English", 97, 195, 244, "FullReduction", "Exception"); break;
-			case "Single Reduction KV": allCiphers[allCiphers.length] = new cipher(key, "English", 70, 175, 244, "SingleReduction", "Exception"); break;
-			case "English Ordinal": allCiphers[allCiphers.length] = new cipher(key, "English", 0, 186, 0); break;
-			case "English Extended": allCiphers[allCiphers.length] = new cipher(key, "English", 218, 226, 0, "Extend"); break;
-			case "Francis Bacon": allCiphers[allCiphers.length] = new cipher(key, "English", 150, 244, 77, "CaseSensitive"); break;
-			case "Franc Baconis": allCiphers[allCiphers.length] = new cipher(key, "English", 93, 187, 88, "AltCaseSensitive"); break;
-			case "Satanic": allCiphers[allCiphers.length] = new cipher(key, "English", 255, 0, 0, "SatanicNum"); break;
+			case "KV Exception": allCiphers[allCiphers.length] = new cipher(key, "English", 97, 195, 244, "FullReduction", "Exception"); break;
+			case "SKV Exception": allCiphers[allCiphers.length] = new cipher(key, "English", 70, 175, 244, "SingleReduction", "Exception"); break;
+			case "Standard": allCiphers[allCiphers.length] = new cipher(key, "English", 218, 226, 0, "Extend"); break;
+			case "Capitals Added": allCiphers[allCiphers.length] = new cipher(key, "English", 150, 244, 77, "CaseSensitive"); break;
+			case "Capitals Mixed": allCiphers[allCiphers.length] = new cipher(key, "English", 93, 187, 88, "AltCaseSensitive"); break;
+			case "Satanic Gematria": allCiphers[allCiphers.length] = new cipher(key, "English", 255, 0, 0, "SatanicNum"); break;
 
-			case "Bacon Simple": allCiphers[allCiphers.length] = new cipher(key, "English", 80, 235, 21, "BaconSimple"); break;
-			case "Bacon Reverse": allCiphers[allCiphers.length] = new cipher(key, "English", 0, 186, 0, "Reverse", "BaconReverse"); break;
-			case "Bacon Short": allCiphers[allCiphers.length] = new cipher(key, "English", 100, 216, 209, "BaconShort"); break;
-			case "Bacon Reverse Reduction": allCiphers[allCiphers.length] = new cipher(key, "English", 88, 125, 254, "Reverse", "BaconShortRev"); break;
-			case "Bacon Kaye": allCiphers[allCiphers.length] = new cipher(key, "English", 220, 93, 73, "BaconKaye"); break;
+			case "Reverse": allCiphers[allCiphers.length] = new cipher(key, "English", 80, 235, 21, "Reverse"); break;
+			case "Reverse Reduction": allCiphers[allCiphers.length] = new cipher(key, "English", 100, 226, 226, "Reverse", "FullReduction"); break;
+			case "Reverse Single Reduction": allCiphers[allCiphers.length] = new cipher(key, "English", 100, 216, 209, "Reverse", "SingleReduction"); break;
+			case "EP Exception": allCiphers[allCiphers.length] = new cipher(key, "English", 101, 224, 194, "Reverse", "FullReduction", "Exception"); break;
+			case "EHP Exception": allCiphers[allCiphers.length] = new cipher(key, "English", 110, 226, 156, "Reverse", "SingleReduction", "Exception"); break;
+			case "Reverse Standard": allCiphers[allCiphers.length] = new cipher(key, "English", 253, 255, 119, "Reverse", "Extend"); break;
+			case "Reverse Caps Added": allCiphers[allCiphers.length] = new cipher(key, "English", 163, 255, 88, "Reverse", "CaseSensitive"); break;
+			case "Reverse Caps Mixed": allCiphers[allCiphers.length] = new cipher(key, "English", 111, 193, 121, "Reverse", "AltCaseSensitive"); break;
+			case "Reverse Satanic": allCiphers[allCiphers.length] = new cipher(key, "English", 255, 51, 51, "Reverse", "SatanicNum"); break;
+
+			case "Elizabethan Simple": allCiphers[allCiphers.length] = new cipher(key, "English", 80, 235, 21, "BaconSimple"); break;
+			case "Elizabethan Reverse": allCiphers[allCiphers.length] = new cipher(key, "English", 0, 186, 0, "Reverse", "BaconReverse"); break;
+			case "Elizabethan Reduction": allCiphers[allCiphers.length] = new cipher(key, "English", 100, 216, 209, "BaconShort"); break;
+			case "Elizabethan R Reduction": allCiphers[allCiphers.length] = new cipher(key, "English", 88, 125, 254, "Reverse", "BaconShortRev"); break;
+			case "Elizabethan Kaye": allCiphers[allCiphers.length] = new cipher(key, "BaconKaye", 220, 93, 73); break;
 			case "Kaye 36": allCiphers[allCiphers.length] = new cipher(key, "Kaye36", 220, 93, 73); break;
 			case "Modern Kaye": allCiphers[allCiphers.length] = new cipher(key, "English", 230, 153, 163, "ModernKaye"); break;
 			case "Beatus of Liebana": allCiphers[allCiphers.length] = new cipher(key, "English", 192, 66, 255, "BeatusExtended"); break;
 			case "Beatus Ordinal": allCiphers[allCiphers.length] = new cipher(key, "English", 210, 87, 255, "BeatusOrdinal"); break;
 			case "Beatus Reduction": allCiphers[allCiphers.length] = new cipher(key, "English", 225, 107, 255, "BeatusReduction"); break;
-
-			case "Reverse Full Reduction": allCiphers[allCiphers.length] = new cipher(key, "English", 100, 226, 226, "Reverse", "FullReduction"); break;
-			case "Reverse Single Reduction": allCiphers[allCiphers.length] = new cipher(key, "English", 100, 216, 209, "Reverse", "SingleReduction"); break;
-			case "Reverse Full Reduction EP": allCiphers[allCiphers.length] = new cipher(key, "English", 101, 224, 194, "Reverse", "FullReduction", "Exception"); break;
-			case "Reverse Single Reduction EP": allCiphers[allCiphers.length] = new cipher(key, "English", 110, 226, 156, "Reverse", "SingleReduction", "Exception"); break;
-			case "Reverse Ordinal": allCiphers[allCiphers.length] = new cipher(key, "English", 80, 235, 21, "Reverse"); break;
-			case "Reverse Extended": allCiphers[allCiphers.length] = new cipher(key, "English", 253, 255, 119, "Reverse", "Extend"); break;
-			case "Reverse Francis Bacon": allCiphers[allCiphers.length] = new cipher(key, "English", 163, 255, 88, "Reverse", "CaseSensitive"); break;
-			case "Reverse Franc Baconis": allCiphers[allCiphers.length] = new cipher(key, "English", 111, 193, 121, "Reverse", "AltCaseSensitive"); break;
-			case "Reverse Satanic": allCiphers[allCiphers.length] = new cipher(key, "English", 255, 51, 51, "Reverse", "SatanicNum"); break;
-
 			case "Illuminati Novice": allCiphers[allCiphers.length] = new cipher(key, "English", 255, 255, 29, "IlluminatiNovice"); break;
 			case "Illuminati Reverse": allCiphers[allCiphers.length] = new cipher(key, "English", 255, 189, 2, "Reverse", "IlluminatiReverse"); break;
 
-			case "Jewish": allCiphers[allCiphers.length] = new cipher(key, "Latin", 153, 102, 255, "Extend"); break;
-			case "Jewish Ordinal": allCiphers[allCiphers.length] = new cipher(key, "Latin", 154, 121, 227); break;
-			case "Jewish Reduction": allCiphers[allCiphers.length] = new cipher(key, "Latin", 159, 99, 197, "FullReduction"); break;
+			case "Latin": allCiphers[allCiphers.length] = new cipher(key, "Latin", 153, 102, 255, "Extend"); break;
+			case "Latin Ordinal": allCiphers[allCiphers.length] = new cipher(key, "Latin", 154, 121, 227); break;
+			case "Latin Reduction": allCiphers[allCiphers.length] = new cipher(key, "Latin", 159, 99, 197, "FullReduction"); break;
 
-			case "ALW Kabbalah": allCiphers[allCiphers.length] = new cipher(key, "English", 255, 64, 0, "ALW"); break;
-			case "KFW Kabbalah": allCiphers[allCiphers.length] = new cipher(key, "English", 255, 88, 0, "KFW"); break;
-			case "LCH Kabbalah": allCiphers[allCiphers.length] = new cipher(key, "English", 255, 93, 73, "LCH"); break;
+			case "English Qaballa": allCiphers[allCiphers.length] = new cipher(key, "English", 255, 64, 0, "ALW"); break;
+			case "Cipher X": allCiphers[allCiphers.length] = new cipher(key, "English", 255, 88, 0, "KFW"); break;
+			case "Trigrammaton Qabalah": allCiphers[allCiphers.length] = new cipher(key, "English", 255, 93, 73, "LCH"); break;
 
 			case "Alphanumeric Qabbala": allCiphers[allCiphers.length] = new cipher(key, "AQ", 190, 190, 126); break;
 			case "Elizabethan Alphanumeric": allCiphers[allCiphers.length] = new cipher(key, "ElizAQ", 227, 176, 114); break;
 
-			case "English Sumerian": allCiphers[allCiphers.length] = new cipher(key, "English", 169, 208, 142, "SumerianNum"); break;
-			case "Reverse English Sumerian": allCiphers[allCiphers.length] = new cipher(key, "English", 220, 208, 148, "Reverse", "SumerianNum"); break;
+			case "Sumerian": allCiphers[allCiphers.length] = new cipher(key, "English", 169, 208, 142, "SumerianNum"); break;
+			case "Reverse Sumerian": allCiphers[allCiphers.length] = new cipher(key, "English", 220, 208, 148, "Reverse", "SumerianNum"); break;
 			case "Primes": allCiphers[allCiphers.length] = new cipher(key, "English", 255, 204, 111, "PrimeNum"); break;
 			case "Trigonal": allCiphers[allCiphers.length] = new cipher(key, "English", 231, 180, 113, "TriangleNum"); break;
 			case "Squares": allCiphers[allCiphers.length] = new cipher(key, "English", 228, 216, 96, "SquareNum"); break;
@@ -814,40 +816,38 @@ function Build_Ciphers() {
 }
 
 function Set_Categories() {
-	catArr = ["English", "English (Special)", "Reverse", "Jewish", "Kabbalah", "Mathematical", "Other", "Foreign", "Russian", "Custom"]
+	catArr = ["English", "English (Special)", "Reverse", "Latin", "Thelemic", "Mathematical", "Other", "Foreign", "Russian", "Custom"]
 
-	cipherArray["English Ordinal"] = "English"
-	cipherArray["Full Reduction"] = "English"
+	cipherArray["Ordinal"] = "English"
+	cipherArray["Reduction"] = "English"
 	cipherArray["Single Reduction"] = "English"
-	cipherArray["Full Reduction KV"] = "English"
-	cipherArray["Single Reduction KV"] = "English"
-	cipherArray["English Extended"] = "English"
-	cipherArray["Francis Bacon"] = "English"
-	cipherArray["Franc Baconis"] = "English"
-	cipherArray["Satanic"] = "English"
+//	cipherArray["KV Exception"] = "English"
+//	cipherArray["SKV Exception"] = "English"
+	cipherArray["Standard"] = "English"
+	cipherArray["Capitals Added"] = "English"
+	cipherArray["Capitals Mixed"] = "English"
+	cipherArray["Satanic Gematria"] = "English"
 
-	cipherArray["Reverse Ordinal"] = "Reverse"
-	cipherArray["Reverse Full Reduction"] = "Reverse"
+	cipherArray["Reverse"] = "Reverse"
+	cipherArray["Reverse Reduction"] = "Reverse"
 	cipherArray["Reverse Single Reduction"] = "Reverse"
-	cipherArray["Reverse Full Reduction EP"] = "Reverse"
-	cipherArray["Reverse Single Reduction EP"] = "Reverse"
-	cipherArray["Reverse Extended"] = "Reverse"
-	cipherArray["Reverse Francis Bacon"] = "Reverse"
-	cipherArray["Reverse Franc Baconis"] = "Reverse"
+//	cipherArray["EP Exception"] = "Reverse"
+//	cipherArray["EHP Exception"] = "Reverse"
+	cipherArray["Reverse Standard"] = "Reverse"
+	cipherArray["Reverse Caps Added"] = "Reverse"
+	cipherArray["Reverse Caps Mixed"] = "Reverse"
 	cipherArray["Reverse Satanic"] = "Reverse"
 	
-	cipherArray["Jewish"] = "Jewish"
-	cipherArray["Jewish Ordinal"] = "Jewish"	
-	cipherArray["Jewish Reduction"] = "Jewish"
+	cipherArray["Latin Reduction"] = "Latin"
+	cipherArray["Latin Ordinal"] = "Latin"	
+	cipherArray["Latin"] = "Latin"
 
-	cipherArray["ALW Kabbalah"] = "Kabbalah"
-	cipherArray["KFW Kabbalah"] = "Kabbalah"
-	cipherArray["LCH Kabbalah"] = "Kabbalah"
+	cipherArray["English Qaballa"] = "Thelemic"
+	cipherArray["Cipher X"] = "Thelemic"
+	cipherArray["Trigrammaton Qabalah"] = "Thelemic"
 
-//	cipherArray["Elizabethan Alphanumeric"] = "Alphanumeric"
-
-	cipherArray["English Sumerian"] = "Mathematical"
-	cipherArray["Reverse English Sumerian"] = "Mathematical"
+	cipherArray["Sumerian"] = "Mathematical"
+	cipherArray["Reverse Sumerian"] = "Mathematical"
 	cipherArray["Primes"] = "Mathematical"
 	cipherArray["Trigonal"] = "Mathematical"
 	cipherArray["Squares"] = "Mathematical"
@@ -884,19 +884,21 @@ function Set_Categories() {
 	cipherArray["RU Extended"] = "Russian"
 	cipherArray["RU Reverse Extended"] = "Russian"
 
-	cipherArray["Bacon Simple"] = "English (Special)"
-	cipherArray["Bacon Reverse"] = "English (Special)"
-	cipherArray["Bacon Short"] = "English (Special)"
-	cipherArray["Bacon Kaye"] = "English (Special)"
+	cipherArray["Elizabethan Simple"] = "English (Special)"
+	cipherArray["Elizabethan Reverse"] = "English (Special)"
+	cipherArray["Elizabethan Reduction"] = "English (Special)"
+	cipherArray["Elizabethan Kaye"] = "English (Special)"
 //	cipherArray["Kaye 36"] = "English (Special)"
 	cipherArray["Modern Kaye"] = "English (Special)"
 	cipherArray["Illuminati Novice"] = "English (Special)"
 	cipherArray["Illuminati Reverse"] = "English (Special)"
-	cipherArray["Beatus of Liebana"] = "English (Special)"
-	cipherArray["Beatus Ordinal"] = "English (Special)"
-	cipherArray["Beatus Reduction"] = "English (Special)"
+//	cipherArray["Beatus of Liebana"] = "English (Special)"
+//	cipherArray["Beatus Ordinal"] = "English (Special)"
+//	cipherArray["Beatus Reduction"] = "English (Special)"
 
-	cipherArray["Bacon Reverse Reduction"] = "Custom"
+
+	cipherArray["Elizabethan R Reduction"] = "Custom"
+	cipherArray["Elizabethan Alphanumeric"] = "Custom"
    	cipherArray["Alphanumeric Qabbala"] = "Custom"
 	cipherArray["English Custom"] = "Custom"
 	
@@ -964,7 +966,7 @@ function Add_AllCiphers(impBool = false) {
 }
 function Add_BaseCiphers(impBool = false) {
 	var x, q, cN, z
-	var baseCiphers = ["English Ordinal", "Full Reduction", "Reverse Ordinal", "Reverse Full Reduction"]
+	var baseCiphers = ["Ordinal", "Reduction", "Reverse", "Reverse Reduction"]
 
 	openCiphers = []
 	for (z = 0; z < allCiphers.length; z++) {
