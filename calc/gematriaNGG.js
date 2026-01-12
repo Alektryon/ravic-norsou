@@ -820,7 +820,7 @@ function Build_Ciphers() {
 			case "RU Extended": allCiphers[allCiphers.length] = new cipher(key, "Russian", 218, 226, 0, "Extend"); break;
 			case "RU Reverse Extended": allCiphers[allCiphers.length] = new cipher(key, "Russian", 253, 255, 119, "Reverse", "Extend"); break;
 						
-			case "English Custom": allCiphers[allCiphers.length] = new cipher(key, "English", 224, 224, 32, "EnglishCustom"); break;
+			case "English Custom": allCiphers[allCiphers.length] = new cipher(key, "English", 200, 200, 200, "EnglishCustom"); break;
 		}
 	}
 
@@ -896,8 +896,6 @@ function Set_Categories() {
 	cipherArray["RU Extended"] = "Russian"
 	cipherArray["RU Reverse Extended"] = "Russian"
 
-	cipherArray["Elizabethan Standard"] = "English (Special)"
-	cipherArray["Elizabethan R Standard"] = "English (Special)"
 	cipherArray["Elizabethan Simple"] = "English (Special)"
 	cipherArray["Elizabethan Reverse"] = "English (Special)"
 	cipherArray["Elizabethan Reduction"] = "English (Special)"
@@ -914,6 +912,8 @@ function Set_Categories() {
 	cipherArray["Elizabethan R Reduction"] = "Custom"
 	cipherArray["Elizabethan Alphanumeric"] = "Custom"
    	cipherArray["Alphanumeric Qabbala"] = "Custom"
+	cipherArray["Elizabethan Standard"] = "Custom"
+	cipherArray["Elizabethan R Standard"] = "Custom"
 	cipherArray["English Custom"] = "Custom"
 	
 
