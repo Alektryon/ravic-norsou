@@ -168,6 +168,8 @@ class cipher {
 		if (impMods.indexOf("SquareNum") > -1) {this.Make_Squares()}
 		if (impMods.indexOf("SumerianNum") > -1) {this.Make_Sumerian()}
 		if (impMods.indexOf("KeyNum") > -1) {this.Make_KeyAlt()}
+		if (impMods.indexOf("BaconExtend") > -1) {this.Make_BaconExtend()}
+		if (impMods.indexOf("BaconRExtend") > -1) {this.Make_BaconRExtend()}
 		if (impMods.indexOf("BaconSimple") > -1) {this.Make_BaconSimple()}
 		if (impMods.indexOf("BaconReverse") > -1) {this.Make_BaconReverse()}
 		if (impMods.indexOf("BaconShort") > -1) {this.Make_BaconShort()}
@@ -584,6 +586,14 @@ class cipher {
 		this.vArr = [2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 0, 7, 7, 8, 8, 8, 9, 9, 9, 0]
 		this.vArr2 = [2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 0, 7, 7, 8, 8, 8, 9, 9, 9, 0]
 	}
+	Make_BaconExtend() {
+		this.vArr = [1,2,3,4,5,6,7,8,9,9,10,20,30,40,50,60,70,80,90,100,200,200,300,400,500,600]
+		this.vArr2 = [1,2,3,4,5,6,7,8,9,9,10,20,30,40,50,60,70,80,90,100,200,200,300,400,500,600]
+	}
+	Make_BaconRExtend() {
+		this.vArr = [1,2,3,4,5,5,6,7,8,9,10,20,30,40,50,60,70,70,80,90,100,200,300,400,500,600]
+		this.vArr2 = [1,2,3,4,5,5,6,7,8,9,10,20,30,40,50,60,70,70,80,90,100,200,300,400,500,600]
+	}
 	Make_BaconSimple() {
 		this.vArr = [1,2,3,4,5,6,7,8,9,9,10,11,12,13,14,15,16,17,18,19,20,20,21,22,23,24]
 		this.vArr2 = [1,2,3,4,5,6,7,8,9,9,10,11,12,13,14,15,16,17,18,19,20,20,21,22,23,24]
@@ -747,6 +757,8 @@ function Build_Ciphers() {
 			case "Reverse Caps Mixed": allCiphers[allCiphers.length] = new cipher(key, "English", 111, 193, 121, "Reverse", "AltCaseSensitive"); break;
 			case "Reverse Satanic": allCiphers[allCiphers.length] = new cipher(key, "English", 255, 51, 51, "Reverse", "SatanicNum"); break;
 
+			case "Elizabethan Extended": allCiphers[allCiphers.length] = new cipher(key, "English", 253, 255, 119, "BaconExtend"); break;
+			case "Elizabethan R Extended": allCiphers[allCiphers.length] = new cipher(key, "English", 218, 226, 0, "Reverse", "BaconRExtend"); break;
 			case "Elizabethan Simple": allCiphers[allCiphers.length] = new cipher(key, "English", 80, 235, 21, "BaconSimple"); break;
 			case "Elizabethan Reverse": allCiphers[allCiphers.length] = new cipher(key, "English", 0, 186, 0, "Reverse", "BaconReverse"); break;
 			case "Elizabethan Reduction": allCiphers[allCiphers.length] = new cipher(key, "English", 100, 216, 209, "BaconShort"); break;
@@ -884,6 +896,8 @@ function Set_Categories() {
 	cipherArray["RU Extended"] = "Russian"
 	cipherArray["RU Reverse Extended"] = "Russian"
 
+	cipherArray["Elizabethan Extended"] = "English (Special)"
+	cipherArray["Elizabethan R Extended"] = "English (Special)"
 	cipherArray["Elizabethan Simple"] = "English (Special)"
 	cipherArray["Elizabethan Reverse"] = "English (Special)"
 	cipherArray["Elizabethan Reduction"] = "English (Special)"
